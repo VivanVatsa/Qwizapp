@@ -2,7 +2,7 @@
 
 A new Flutter project with some great ideas and a simple, clean architecture.
 
-## Getting Started
+## Second in Dart-Line
 
 This project is a second in line for my Flutter application new world.
 
