@@ -31,9 +31,22 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var question = [
-      'what\'s ur fav color?',
-      'what\'s is ur fav animal?',
-      'what\'s is ur fav song?',
+      // creating a map to store questions and answers
+      {
+       'questionText':  'what\'s ur fav color?',
+       'answer': ['Black', 'Red', 'Blue', 'white'],
+      },
+
+      {
+       'questionText':  'what\'s is ur fav animal?',
+       'answer': ['Rabbit', 'snake', 'monkey', 'lion'],
+      },
+
+      {
+       'questionText':  'what\'s is ur fav song?',
+       'answer': ['hip hop', 'pop', 'jazz', 'blue'],
+      },
+
     ];
     return MaterialApp(
       home: Scaffold(
@@ -41,13 +54,12 @@ class _MyAppState extends State<MyApp> {
           title: Text('My first App'),
         ),
         body: Column(
-          children: <Widget>[
+          children: [
             Question(
-              question[_questionIndex],
+              question[_questionIndex]['questionText'],
             ),
-            Answer(_answer),
-            Answer(_answer),
-            Answer(_answer),
+            ...(question[_questionIndex]['answer'] as List<String>).map(answer)
+            return Answer(_answer, answer);
           ],
         ),
       ),
