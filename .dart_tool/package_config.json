@@ -173,10 +173,10 @@
       "name": "flutter_tuto",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.2"
     }
   ],
-  "generated": "2020-04-17T16:28:59.682879Z",
+  "generated": "2020-04-27T06:44:33.898112Z",
   "generator": "pub",
   "generatorVersion": "2.7.2"
 }
