@@ -61,6 +61,7 @@ class _MyAppState extends State<MyApp> {
           title: Text('My first App'),
         ),
         body: Column(
+          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Question(
               question[_questionIndex]['questionText'],
