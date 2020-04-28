@@ -12,7 +12,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    //TODO: implement createstate
+    //implement createState
     return _MyAppState();
   }
 }
@@ -30,6 +30,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     const question = const [
       // creating a map to store questions and answers
+      // data structures called maps have been used to declare the createState
       {
         'questionText': 'what\'s ur fav color?',
         'answers': ['Black', 'Red', 'Blue', 'white'],
@@ -66,7 +67,7 @@ class _MyAppState extends State<MyApp> {
             Question(
               question[_questionIndex]['questionText'],
             ),
-            //spread operator(...)
+            //spread operator(...) and then add toList()
             ...(question[_questionIndex]['answers'] as List<String>)
                 .map((answer) {
               return Answer(_answer, answer);
