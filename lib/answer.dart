@@ -10,9 +10,9 @@ class Answer extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: RaisedButton(
-        color: Colors.green,
+        color: Colors.blue,
         textColor: Colors.white,
-        child: Text('Answer 1'),
+        child: Text(answerText),
         onPressed: selectHandler,
       ),
     );
