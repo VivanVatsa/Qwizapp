@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import './quiz.dart';
+import './result.dart';
 
-import './question.dart';
-import './answer.dart';
+// import './question.dart';
+// import './answer.dart';
 
 // void main() {
 // RunApp(MyApp());
@@ -18,45 +20,76 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final question = const [
+  final _question = const [
     // can also use static const quest............
     // const question = const [
     // creating a map to store questions and answers
     // data structures called maps have been used to declare the createState
     {
       'questionText': 'what\'s ur fav color?',
-      'answers': ['Black', 'Red', 'Blue', 'white'],
+      'answers': [
+        {'text': 'Black', 'Score': 15},
+        {'text': 'Red', 'Score': 10},
+        {'text': 'Blue', 'Score': 5},
+        {'text': 'white', 'Score': 3}
+      ],
     },
 
     {
       'questionText': 'what\'s is ur fav animal?',
-      'answers': ['Rabbit', 'snake', 'monkey', 'lion'],
+      'answers': [
+        {'text': 'Rabbit', 'Score': 10},
+        {'text': 'snake', 'Score': 9},
+        {'text': 'monkey', 'Score': 8},
+        {'text': 'lion', 'Score': 7}
+      ],
     },
 
     {
       'questionText': 'what\'s is ur fav song?',
-      'answers': ['hip hop', 'pop', 'jazz', 'blue'],
+      'answers': [
+        {'text': 'hip hop', 'Score': 5},
+        {'text': 'pop', 'Score': 10},
+        {'text': 'jazz', 'Score': 15},
+        {'text': 'blue', 'Score': 20}
+      ],
     },
 
     {
       'questionText': 'what\'s is ur fav no?',
-      'answers': ['one', 'five', 'six', 'nine'],
+      'answers': [
+        {'text': 'one', 'Score': 1},
+        {'text': 'five', 'Score': 2},
+        {'text': 'six', 'Score': 3},
+        {'text': 'nine', 'Score': 4}
+      ],
     },
   ];
 
   var _questionIndex = 0;
-  void _answer() {
+  var _totalScore = 0;
+
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+    _totalScore = 0;      
+    });
+  }
+
+  void _answer(int score) {
     // var aBool = true;
     // aBool = false;
-    
+    _totalScore += score;
+
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
     print(_questionIndex);
 
-    if (_questionIndex < question.length) {
-      print('We have more Questions lined up.');
-    }
+    // if (_questionIndex < _question.length) {
+    //   print('We have more Questions lined up.');
+    // }
+    // return _totalScore;
   }
 
   @override
@@ -70,19 +103,13 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('My first App'),
         ),
-        body: Column(
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Question(
-              question[_questionIndex]['questionText'],
-            ),
-            //spread operator(...) and then add toList()
-            ...(question[_questionIndex]['answers'] as List<String>)
-                .map((answer) {
-              return Answer(_answer, answer);
-            }).toList()
-          ],
-        ),
+        body: _questionIndex < _question.length
+            ? Quiz(
+                answers: _answer,
+                questionIndex: _questionIndex,
+                question: _question,
+              )
+            : Result(_totalScore, _resetQuiz),
       ),
     );
   }
