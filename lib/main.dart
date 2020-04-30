@@ -18,40 +18,49 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final question = const [
+    // can also use static const quest............
+    // const question = const [
+    // creating a map to store questions and answers
+    // data structures called maps have been used to declare the createState
+    {
+      'questionText': 'what\'s ur fav color?',
+      'answers': ['Black', 'Red', 'Blue', 'white'],
+    },
+
+    {
+      'questionText': 'what\'s is ur fav animal?',
+      'answers': ['Rabbit', 'snake', 'monkey', 'lion'],
+    },
+
+    {
+      'questionText': 'what\'s is ur fav song?',
+      'answers': ['hip hop', 'pop', 'jazz', 'blue'],
+    },
+
+    {
+      'questionText': 'what\'s is ur fav no?',
+      'answers': ['one', 'five', 'six', 'nine'],
+    },
+  ];
+
   var _questionIndex = 0;
   void _answer() {
+    // var aBool = true;
+    // aBool = false;
+    
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
     print(_questionIndex);
+
+    if (_questionIndex < question.length) {
+      print('We have more Questions lined up.');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    const question = const [
-      // creating a map to store questions and answers
-      // data structures called maps have been used to declare the createState
-      {
-        'questionText': 'what\'s ur fav color?',
-        'answers': ['Black', 'Red', 'Blue', 'white'],
-      },
-
-      {
-        'questionText': 'what\'s is ur fav animal?',
-        'answers': ['Rabbit', 'snake', 'monkey', 'lion'],
-      },
-
-      {
-        'questionText': 'what\'s is ur fav song?',
-        'answers': ['hip hop', 'pop', 'jazz', 'blue'],
-      },
-
-      {
-        'questionText': 'what\'s is ur fav no?',
-        'answers': ['one', 'five', 'six', 'nine'],
-      },
-    ];
-
     // var dummy = ['Hello']; // if i add const here it wont work var dummy = const** ['Hello'];
     // // dummy.add('Vivan');
     // print(dummy);
