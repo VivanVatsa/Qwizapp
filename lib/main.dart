@@ -73,7 +73,7 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questionIndex = 0;
     _totalScore = 0;      
-    });
+    }); 
   }
 
   void _answer(int score) {
